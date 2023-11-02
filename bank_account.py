@@ -21,6 +21,11 @@ class AccountDB:
                 return account
         return None
 
+    def delete(self, account_num):
+        for i in self.account_database:
+            if i.account_number == account_num:
+                print("Account deleted, I guess...")
+
     def __str__(self):
         s = ''
         for account in self.account_database:
@@ -48,3 +53,24 @@ class Account:
             self.type) + "," + str(
             self.account_name) + "," + str(
             self.balance) + '}'
+
+
+account1 = Account("0000", "saving", "David Patterson", 1000)
+account2 = Account("0001", "checking", "John Hennessy", 2000)
+account3 = Account("0003", "saving", "Mark Hill", 3000)
+account4 = Account("0004", "saving", "David Wood", 4000)
+account5 = Account("0004", "saving", "David Wood", 4000)
+my_account_DB = AccountDB()
+my_account_DB.insert(account1)
+my_account_DB.insert(account2)
+my_account_DB.insert(account3)
+my_account_DB.insert(account4)
+my_account_DB.insert(account5)
+# print(account1, account2, account3, account4, account5)
+# print(my_account_DB)
+# my_account_DB.search_public("0003").deposit(50)
+# print(my_account_DB)
+# my_account_DB.search_public("0003").withdraw(50)
+# print(my_account_DB)
+my_account_DB.delete("0003")
+# print(my_account_DB)
